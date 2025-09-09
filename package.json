@@ -1,0 +1,15 @@
+{
+  "name": "dividend-analyzer",
+  "version": "1.0.0",
+  "description": "Приложение для анализа дивидендных акций и ОФЗ",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "keywords": ["dividends", "stocks", "bonds", "analysis"],
+  "author": "Ваше имя",
+  "license": "MIT"
+}
