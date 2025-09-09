@@ -1,4 +1,3 @@
-// functions/moex-proxy.js
 const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
@@ -28,7 +27,13 @@ exports.handler = async function(event, context) {
   }
   
   try {
+    console.log('Fetching from MOEX:', endpoint);
     const response = await fetch(`https://iss.moex.com${endpoint}`);
+    
+    if (!response.ok) {
+      throw new Error(`MOEX API error: ${response.status} ${response.statusText}`);
+    }
+    
     const data = await response.json();
     
     return {
@@ -39,6 +44,7 @@ exports.handler = async function(event, context) {
       body: JSON.stringify(data)
     };
   } catch (error) {
+    console.error('Error in moex-proxy:', error);
     return {
       statusCode: 500,
       headers: {
